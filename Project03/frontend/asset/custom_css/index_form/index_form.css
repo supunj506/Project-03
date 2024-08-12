@@ -1,0 +1,136 @@
+<!--/*
+* @author : mj@Max
+* Date    : 8/14/2023 (Sun)
+* Time    : 4:38 AM
+* Project : Web POS
+* For GDSE course of IJSE institute.
+*/-->
+
+/*----style for header----------------------*/
+/*header{
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    !*background-color: #BED7FD;*!
+}
+header > section{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+header > section:first-child > img {
+    width: 20%;
+    height: 70%;
+    margin-left: 3%;
+}
+header > section:first-child > h2 {
+    !*font-family: 'Roboto', sans-serif;*!
+    font-family: 'Rubik', sans-serif;
+    margin-left: 10%;
+    font-size: 30px;
+    font-weight: lighter;
+
+}
+header > section:nth-child(2) > div {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: lighter;
+}
+
+header > section:nth-child(2) > div:first-child {
+    justify-content: space-around;
+    font-size: 20px;
+
+}
+header > section:nth-child(2) > div:nth-child(2) {
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+header > section:nth-child(2) > div:nth-child(2) > img {
+    margin-left: 20%;
+    width: 15%;
+}*/
+
+/*----style for main----------------------*/
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 88vh;
+}
+
+/*------aside nav---------------*/
+main > aside {
+    width: 90%;
+    height: 97%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+main > aside > nav {
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    gap: 5%;
+
+
+}
+
+.navigate_btn {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f5feff;
+    border-radius: 2em;
+    box-shadow: 4px 3px 20px -10px black;
+
+    transition: background 0.4s,transform 0.4s;
+
+}
+.navigate_btn:hover{
+    transform: translateY(-10px);
+}
+main > aside > nav > a {
+    text-decoration: none;
+    color: #0c0833;
+}
+main > aside > nav > a > div > img {
+    width: 20%;
+    height: 30%;
+}
+main > aside > nav > a > div > h4 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 35px;
+    margin-top: 5%;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*----style for footer----------------------------------------------------------------------------*/
+footer {
+    width: 100%;
+    height: 4vh;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer > p {
+    margin: 0;
+}

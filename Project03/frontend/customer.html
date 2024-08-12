@@ -1,0 +1,266 @@
+<!--/*
+* @author : xCODE
+* Project : GDSE_61
+* Date    : 6/11/2024 (Tuesday)
+* Time    : 5:02 PM
+* For GDSE course of IJSE institute.
+*/-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Super Mart</title>
+    <link href="asset/lib/css_lib/normalize.css" rel="stylesheet">
+    <link href="asset/material/logo/superMartLogo.png" rel="icon">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <meta content="Super mart,super,mart " name="keywords">
+    <meta content="Sri lanka largest market place" name="description">
+    <meta content="S.M.Jayasinghe" name="author">
+    <meta content="S.M.Jayasinghe" name="owner">
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="asset/lib/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="asset/custom_css/common/header/header.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/nav_icon/nav_icon_style.css" rel="stylesheet">
+
+    <link href="asset/custom_css/customer_form/customerForm.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <section>
+        <img alt="logo.png" id="logo" src="asset/material/logo/superMartLogo.png">
+        <h2>Super Mart POS System</h2>
+    </section>
+
+    <section>
+        <div>
+            <h4 id="date">25-04-2023</h4>
+            <h4 id="time">12:23</h4>
+        </div>
+        <div>
+            <img alt="userImage.png" id="userImage" src="asset/material/image/UserImage.png">
+            <p>Supun Jayasinghe</p>
+        </div>
+    </section>
+</header>
+<main>
+    <aside>
+        <nav>
+            <a href="order.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-purchase-order-96.png">
+                <h4>Order</h4>
+            </a>
+
+            <a href="customer.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-customer-64.png">
+                <h4>Customer</h4>
+            </a>
+            <a href="item.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-product-90.png">
+                <h4>Items</h4>
+            </a>
+            <a href="orderDetails.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-more-details-100.png">
+                <h4>Order Details</h4>
+            </a>
+        </nav>
+
+    </aside>
+    <section class="form" id="customerSection">
+        <div>
+            <div>
+                <h2>Customer</h2>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <p>Customer Details</p>
+                    </div>
+                    <form id="customerForm">
+                        <div>
+                            <label for="inputCusId"></label><input class="cusInput" id="inputCusId"
+                                                                   name="id" placeholder=" Customer ID" type="text">
+                            <label for="inputCusName"></label><input class="cusInput" id="inputCusName"
+                                                                     name="name" placeholder=" Name" type="text">
+                        </div>
+                        <div>
+                            <label for="inputCusAddress"></label><input class="cusInput" id="inputCusAddress"
+                                                                        name="address" placeholder=" Address"
+                                                                        type="text">
+                            <label for="inputCusSalary"></label><input class="cusInput" id="inputCusSalary"
+                                                                       name="salary" placeholder=" salary" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div>
+
+                    <button id="addCus" type="button">Add</button>
+                    <button id="remove" type="button">Remove</button>
+                    <button id="update" type="button">Update</button>
+                    <button id="getAll" type="button">Get ALL</button>
+                    <button id="clearAll" type="button">Clear</button>
+
+                </div>
+                <div>
+                    <table class="table table-hover table-bordered" id="table">
+                        <thead class="bg-info">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Salary</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+</main>
+<footer>
+    <p>Copyright @ 2023 All Right Reserved By Supun Madubhashitha</p>
+</footer>
+<script src="asset/lib/JQuery/jquery-3.6.1.min.js"></script>
+<script>
+
+    let priviesRow;
+
+    let baseURL = "http://localhost:8080/backend/";
+
+    refreshTable();
+
+    $("#addCus").click(function () {
+        $.ajax({
+            url: baseURL+"customer",
+            method: "post",
+            data: getCustomerJson(),
+            success : function (){
+                clearInput();
+                refreshTable();
+
+            }
+        });
+    });
+
+    $("#getAll").click(function () {
+        $("#tbody").empty();
+        refreshTable();
+    });
+
+    $("#remove").click(function (){
+
+        let id =$("#inputCusId").val();
+        $.ajax({
+            url:baseURL+"customer?id="+id,
+            method: "delete",
+            // dataType:"json",
+            success:function (){
+                clearInput();
+                refreshTable();;
+            },
+            /*error : function (resp){
+                refreshTable();
+                clearInput();
+                alert(resp.responseJSON.message)
+            }*/
+        })
+    });
+
+    $("#update").click(function (){
+        $.ajax({
+            url:baseURL+"customer",
+            method:"put",
+            // dataType:"json",
+            data:getCustomerJson(),
+            success:function (resp){
+                refreshTable();
+                clearInput();
+                // alert(resp.message);
+            }/*,
+            error : function (resp){
+                refreshTable();
+                clearInput();
+                alert(resp.responseJSON.message);
+            }*/
+        })
+    });
+    function refreshTable () {
+        $("#tbody").empty();
+        $.ajax({
+            url: baseURL+"customer",
+            dataType:"json",
+            success: function (resp) {
+                // alert(resp.message);
+                for (let customer of resp) {
+                    $("#tbody").append(`<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`)
+                }
+                bindTableRowClick();
+            }/*,
+            error : function (resp){
+                alert(resp.responseJSON.message);
+            }*/
+        })
+    }
+    function bindTableRowClick() {
+        $("#tbody > tr ").click(function () {
+            /*let id  = $(this).children(":eq(0)").text();
+            let name  = $(this).children(":eq(1)").text();
+            console.log(name);
+*/
+            if (priviesRow !== null) {
+                $(priviesRow).css("background", "white");
+                $(this).css("background", "#BED7FD");
+                priviesRow = this;
+            } else {
+                if (this.style.background === "white") {
+                    $(this).css("background", "#BED7FD")
+                    priviesRow = this;
+
+                } else {
+                    $(this).css("background", "white");
+                }
+            }
+            $("#inputCusId").val($(this).children(":eq(0)").text());
+            $("#inputCusName").val($(this).children(":eq(1)").text());
+            $("#inputCusAddress").val($(this).children(":eq(2)").text());
+            $("#inputCusSalary").val($(this).children(":eq(3)").text());
+        })
+    }
+    function clearInput(){
+        $("#inputCusId").val("");
+        $("#inputCusName").val("");
+        $("#inputCusAddress").val("");
+        $("#inputCusSalary").val("");
+
+    }
+    function getCustomerJson(){
+        let id = $("#inputCusId").val();
+        let name = $("#inputCusName").val();
+        let address = $("#inputCusAddress").val();
+        let salary = $("#inputCusSalary").val();
+        let customer = {
+            id: id,
+            name: name,
+            address: address,
+            salary: salary
+        }
+        return JSON.stringify(customer);
+    }
+
+</script>
+
+
+</body>
+</html>

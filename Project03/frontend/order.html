@@ -1,0 +1,510 @@
+<!--/*
+* Author  : supun@mj
+* Project : Web POS
+* Date    : 9/2/2023 Sat
+* Time    : 8:27 PM
+* For GDSE course of IJSE institute.
+*/-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Super Mart</title>
+    <link href="asset/lib/css_lib/normalize.css" rel="stylesheet">
+    <link href="asset/material/logo/superMartLogo.png" rel="icon">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <meta content="Super mart,super,mart " name="keywords">
+    <meta content="Sri lanka largest market place" name="description">
+    <meta content="S.M.Jayasinghe" name="author">
+    <meta content="S.M.Jayasinghe" name="owner">
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="asset/lib/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/header/header.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/nav_icon/nav_icon_style.css" rel="stylesheet">
+
+    <link href="asset/custom_css/order_form/orderForm.css " rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <section>
+        <img alt="logo.png" id="logo" src="asset/material/logo/superMartLogo.png">
+        <h2>Super Mart POS System</h2>
+    </section>
+
+    <section>
+        <div>
+            <h4 id="date">25-04-2023</h4>
+            <h4 id="time">12:23</h4>
+        </div>
+        <div>
+            <img alt="userImage.png" id="userImage" src="asset/material/image/UserImage.png">
+            <p>Supun Jayasinghe</p>
+        </div>
+    </section>
+</header>
+
+<main>
+    <aside>
+        <nav>
+            <a href="order.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-purchase-order-96.png">
+                <h4>Order</h4>
+            </a>
+            <a href="customer.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-customer-64.png">
+                <h4>Customer</h4>
+            </a>
+            <a href="item.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-product-90.png">
+                <h4>Items</h4>
+            </a>
+            <a href="orderDetails.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-more-details-100.png">
+                <h4>Order Details</h4>
+            </a>
+        </nav>
+
+    </aside>
+    <section id="orderSection">
+        <div>
+            <div id="titleSection">
+                <h2>Make Order</h2>
+            </div>
+
+            <div id="inputSection">
+
+                <div id="itemSelectDiv">
+                    <div id=itemSelectTitle><p>Item Select</p></div>
+                    <div id=itemSelectInput>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="itemSelectItemCodeBox" class="label">Item :</lable>
+                                <select id="itemSelectItemCodeBox" class="inputElement" type="text"></select>
+                            </div>
+                            <!-- <div class="invoiceInputDivDiv">
+                                 <lable for="itemSelectItemCode" class="label">Item Code :</lable>
+                                 <input id="itemSelectItemCode" class="inputElement" type="text">
+                             </div>-->
+                            <div class="invoiceInputDivDiv">
+                                <lable for="itemSelectItemName" class="label">Item Name :</lable>
+                                <input id="itemSelectItemName" class="inputElement" type="text">
+                            </div>
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="itemSelectItemPrice" class="label">Unit Price :</lable>
+                                <input id="itemSelectItemPrice" class="inputElement" type="text">
+                            </div>
+                            <div class="invoiceInputDivDiv">
+                                <lable for="itemSelectItemQty" class="label">QtyOnHand :</lable>
+                                <input id="itemSelectItemQty" class="inputElement" type="text">
+                            </div>
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="itemSelectItemOrderQty" class="label">Order Quantity :</lable>
+                                <input id="itemSelectItemOrderQty" class="inputElement" type="number">
+                            </div>
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <button id="addOrderItem">Add Item</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="invoiceDiv">
+                    <div id="invoiceTitle">
+                        <p>Invoice Details</p>
+                    </div>
+                    <div id="invoiceInput">
+
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="invoiceOrderId" class="label">Order ID :</lable>
+                                <input id="invoiceOrderId" class="inputElement" type="text" readonly>
+                            </div>
+                            <!-- <div class="invoiceInputDivDiv">
+                                 <lable for="invoiceOrderDate" class="label" >Date :</lable>
+                                 <input id="invoiceOrderDate" class="inputElement" type="date">
+                             </div>-->
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="invoiceCusSelectBox" class="label">Customer :</lable>
+                                <select id="invoiceCusSelectBox" class="inputElement" type="text"></select>
+                            </div>
+                            <!--                            <div class="invoiceInputDivDiv">-->
+                            <!--                                <lable for="invoiceCusId" class="label">Customer ID :</lable>-->
+                            <!--                                <input id="invoiceCusId" class="inputElement" type="text">-->
+                            <!--                            </div>-->
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="invoiceCusName" class="label"> Name</lable>
+                                <input id="invoiceCusName" class="inputElement" type="text">
+                            </div>
+                            <div class="invoiceInputDivDiv">
+                                <lable for="invoiceCusSalary" class="label"> Salary</lable>
+                                <input id="invoiceCusSalary" class="inputElement" type="text">
+                            </div>
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="invoiceCusAddress" class="label"> Address :</lable>
+                                <input id="invoiceCusAddress" class="inputElement" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="summeryDiv">
+                    <div id="summaryTitle"><p>Order Summary</div>
+                    <div id="summerInputDiv">
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable class="label">Total :</lable>
+                                <h2 id="orderTotal">00.00 LKR</h2>
+                            </div>
+                        </div>
+                        <!--                        <div class="invoiceInputDiv">-->
+                        <!--                            <div class="invoiceInputDivDiv">-->
+                        <!--                                <lable class="label">SubTotal :</lable>-->
+                        <!--                                <h3 id="orderSubTotal">00.00 </h3>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="orderCash" class="label">Cash :</lable>
+                                <input id="orderCash" class="inputElement" type="text">
+                            </div>
+                            <!--<div class="invoiceInputDivDiv">
+                                <lable for="orderDiscount" class="label">Discount :</lable>
+                                <input id="orderDiscount" class="inputElement" type="text">
+                            </div>-->
+
+                        </div>
+                        <div class="invoiceInputDiv">
+                            <div class="invoiceInputDivDiv">
+                                <lable for="orderBalance" class="label">Balance :</lable>
+                                <input id="orderBalance" class="inputElement" type="text">
+                            </div>
+                        </div>
+                        <div class="invoiceInputDiv">
+
+                            <div class="invoiceInputDivDiv">
+                                <button id="purchase">Pay</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tableSection">
+
+                <table class="table table-hover table-bordered" id="orderTable">
+                    <thead class="bg-info">
+                    <tr>
+                        <th scope="col">Item Code</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">By Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody id="orderTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Copyright @ 2023 All Right Reserved By Supun Madubhashitha</p>
+</footer>
+
+<script src="asset/lib/JQuery/jquery-3.6.1.min.js"></script>
+<script>
+    let cusList;
+    let itemList;
+
+    setInterval(() => {
+        let time = new Date().toString().split(" ")[4];
+        let hour = time.toString().split(":")[0];
+        let minit = time.toString().split(":")[1];
+        let shift = "am";
+
+        if (hour > 12) {
+            shift = "pm";
+            hour = hour - 12;
+        }
+
+
+        // $("#time").text(new Date().toString().split(" ")[4]);
+        $("#time").text(hour + " : " + minit + " " + shift);
+    }, 1000);
+    $("#date").text(new Date().toDateString());
+
+    const table = $("#orderTable");
+    const cusIdBox = $("#invoiceCusSelectBox");
+    const cusName = $("#invoiceCusName");
+    const cusAddress = $("#invoiceCusAddress");
+    const cusSalary = $("#invoiceCusSalary");
+
+    const itemIdBox = $("#itemSelectItemCodeBox");
+    const itemName = $("#itemSelectItemName");
+    const itemQtyOnHand = $("#itemSelectItemQty");
+    const itemPrice = $("#itemSelectItemPrice");
+    const itemSelectQty = $("#itemSelectItemOrderQty")
+
+    const orderId = $("#invoiceOrderId");
+
+    const addItemToOrder = $("#addOrderItem");
+    const purchaseOrder = $("#purchase");
+    const orderBalance = $("#orderBalance");
+    const orderCash = $("#orderCash");
+
+    const orderTotal = $("#orderTotal");
+
+    let newOrderId ;
+    let currentDate ;
+    let lastOrderId = null;
+
+    let baseUrl = "http://localhost:8080/backend/";
+
+    orderId.prop('readonly', true);
+    cusName.prop('readonly', true);
+    cusAddress.prop('readonly', true);
+    cusSalary.prop('readonly', true);
+    itemPrice.prop('readonly', true);
+    itemName.prop('readonly', true);
+    itemQtyOnHand.prop('readonly', true);
+    purchaseOrder.prop('disabled', true);
+    orderBalance.prop('readonly', true);
+
+    function getCurrentDate() {
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1; // Months are zero-based
+        var year = currentDate.getFullYear();
+
+        // Format the date as dd/mm/yyyy
+        var formattedDate = (day < 10 ? '0' : '') + day + '/' +
+            (month < 10 ? '0' : '') + month + '/' + year;
+
+        return  formattedDate;
+    }
+
+    function loadOrderId() {
+
+        $.ajax({
+            url: baseUrl + "orders",
+            success: function (resp) {
+                resp.forEach(resp => {
+                    lastOrderId = resp.orderId
+                });
+                if (lastOrderId === null) {
+                    newOrderId = 'OD001';
+                    orderId.val(newOrderId);
+                } else {
+                    let prefix = lastOrderId.toString().slice(0, 2);
+                    let number = parseInt(lastOrderId.slice(2));
+
+                    number++;
+                    newOrderId = prefix + number.toString().padStart(3, '0');
+                    orderId.val(newOrderId);
+                }
+            }
+        })
+
+    }
+    loadOrderId();
+    loadAllItemId();
+    function loadAllItemId() {
+        $.ajax({
+            url: baseUrl + "item",
+            // dataType: "json",
+            success: function (resp) {
+                // itemList = resp.data;
+                /*resp.data.forEach(data=> {
+                    itemIdBox.append(`<option value="${data.code}">${data.code}</option>`);
+                })*/
+                itemList = resp;
+                itemIdBox.empty();
+                resp.forEach(resp => {
+                    itemIdBox.append(`<option value="${resp.code}">${resp.code}</option>`);
+                })
+                itemIdBox.trigger('change')
+
+            }
+
+        })
+    }
+    itemIdBox.change(function () {
+
+        itemList.forEach(data => {
+            if (this.value === data.code) {
+
+                itemName.val(data.description);
+                itemPrice.val(data.price);
+                itemQtyOnHand.val(data.qty)
+            }
+
+
+        })
+    })
+    function clearItemInput() {
+        itemIdBox.val("");
+        itemName.val("");
+        itemPrice.val("");
+        itemSelectQty.val("");
+        itemQtyOnHand.val("");
+    }
+    addItemToOrder.click(function () {
+
+        let code = itemIdBox.val();
+        let description = itemName.val();
+        let price = itemPrice.val();
+        let byQty = itemSelectQty.val();
+        let stockQty = itemQtyOnHand.val();
+        let total = byQty * price;
+        let found;
+
+
+        if (parseInt(byQty) < parseInt(stockQty)) {
+            $('#orderTable tbody tr').each(function () {
+                let itemCode = $(this).find("td:eq(0)").text();
+                let oldQty = $(this).find("td:eq(3)").text();
+                let oldTotal = $(this).find("td:eq(4)").text();
+
+                if (itemCode !== null && code === itemCode) {
+
+                    let newQTYTotal = parseFloat(oldQty) + parseFloat(byQty);
+
+                    $(this).find('td:eq(3)').text(newQTYTotal); // Update Price
+                    $(this).find('td:eq(4)').text(parseFloat(oldTotal) + total); // Update Total
+                    found = true;
+                    return false; // Exit the loop
+                }
+            });
+            if (!found) {
+                $("#orderTableBody").append(`<tr> <td>${code}</td> <td>${description}</td> <td>${price}</td> <td>${byQty}</td> <td>${total}</td> </tr>`);
+
+            }
+        } else {
+            alert("There have no enough quantity..!")
+            itemSelectQty.focus();
+        }
+        clearItemInput();
+        itemIdBox.trigger('change')
+        setTotal(total)
+        orderCash.trigger('keyup');
+
+
+    })
+    function setTotal(total) {
+        let split = orderTotal.text().split(" ");
+        let oltTotal = parseFloat(split[0]);
+        orderTotal.text((total + oltTotal) + ".00 LKR");
+    }
+    loadAllCustomerId();
+    function loadAllCustomerId() {
+        $.ajax({
+            url: baseUrl + "customer",
+            // dataType : "json",
+            success: function (resp) {
+                /*for(let cus of resp.data){
+                    console.log(cus.id);
+                    cusIdBox.appendChild(cus.id)
+
+                }*/
+                cusList = resp;
+                // let ids = resp;
+                resp.forEach(resp => {
+                    cusIdBox.append(`<option>${resp.id}</option>`)
+                })
+                cusIdBox.trigger('change');
+
+            }
+        })
+
+    }
+    cusIdBox.change(function () {
+        cusList.forEach(cus => {
+            if (this.value === cus.id) {
+                $('#invoiceCusId').val(cus.id);
+                $('#invoiceCusName').val(cus.name);
+                $('#invoiceCusAddress').val(cus.address);
+                $('#invoiceCusSalary').val(cus.salary);
+            }
+        });
+    });
+    orderCash.on('keyup',function (){
+        let val = $(this).val();
+        let split = orderTotal.text().split(".");
+        if(parseFloat(split[0])<val){
+            purchaseOrder.prop('disabled', false);
+            let balance = val-parseFloat(split[0]);
+            orderBalance.val(balance);
+        }else {
+            purchaseOrder.prop('disabled', true);
+            orderBalance.val("");
+        }
+    })
+    function getItemDetails() {
+        let row = $("#orderTableBody").children().length;
+        let itemArray = [];
+
+        for (let i = 0; i < row; i++) {
+            let code = $("#orderTableBody").children().eq(i).children(":eq(0)").text();
+            let qty = $("#orderTableBody").children().eq(i).children(":eq(3)").text();
+            let price = $("#orderTableBody").children().eq(i).children(":eq(2)").text();
+            itemArray.push({code: code, qty: qty, price: price});
+        }
+        return itemArray;
+    }
+
+    purchaseOrder.click(function () {
+        let dataObject = {
+            orderId: orderId.val(),
+            date: getCurrentDate(),
+            customerId: cusIdBox.val(),
+            itemDetails: getItemDetails()
+        }
+        console.log(JSON.stringify(dataObject));
+        $.ajax({
+            url: baseUrl + "orders",
+            method: "post",
+            // dataType: "json",
+            data: JSON.stringify(dataObject),
+            success: function () {
+                $("#orderTableBody").empty();
+                orderTotal.text("00.00 LKR");
+                orderCash.val("");
+                orderBalance.val("");
+                loadOrderId();
+                loadAllItemId();
+            }
+            // error: function () {
+            //     alert("erroxssr");
+            //
+            // }
+        })
+
+    })
+
+
+
+</script>
+
+
+</body>
+</html>

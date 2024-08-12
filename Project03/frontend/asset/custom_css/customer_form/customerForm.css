@@ -1,0 +1,174 @@
+<!--
+/*
+* @author : supun@mj
+* Project : Web POS
+* Date    : 8/16/2023 (Wed)
+* Time    : 3:03 AM
+* For GDSE course of IJSE institute.
+*/
+-->
+
+#customerSection {
+    width: 90%;
+    height: 100%;
+
+}
+#customerSection > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+#customerSection > div > div:first-child {
+    width: 98%;
+    height: 8%;
+    background-color: #BED7FD;
+    border-radius: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+
+}
+#customerSection  > div > div:nth-child(2) {
+    width: 98%;
+    height: 88%;
+    background-color:#d6e7ff ;
+    border-radius: 1.5em;
+    display: flex;
+    flex-direction:column ;
+}
+/*---------------------------------------*/
+#customerSection  > div > div:nth-child(2) > div:first-child {
+    width: 60%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: flex-start;
+    margin-left: 3%;
+
+}
+#customerSection  > div > div:nth-child(2) > div:first-child > div:first-child {
+    display: flex;
+    width: 90%;
+    height: 33%;
+    align-items: center;
+    justify-content: space-around;
+
+}
+#customerSection  > div > div:nth-child(2) > div:first-child > div:first-child {
+    font-size: 1.5em;
+
+}
+
+#customerSection  > div > div:nth-child(2) > div:first-child > form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 66%;
+    align-items: center;
+    justify-content: space-around;
+}
+#customerSection  > div > div:nth-child(2) > div:first-child > form > div {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#customerSection > div > div:nth-child(2) > div:first-child > form > div > input {
+    border-radius: 0.5em;
+    border: none;
+    width: 40%;
+    height: 90%;
+}
+
+#customerSection  > div > div:nth-child(2) > div:first-child > div:nth-child(4) > div {
+
+    width: 20%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+    border-radius: 0.8em;
+    box-shadow: 2px 5px 5px 0;
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10%;
+    cursor: pointer;
+
+}
+
+/*------------------------------------------*/
+
+#customerSection  > div > div:nth-child(2) > div:nth-child(2) {
+    width: 75%;
+    height: 10%;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+#customerSection  > div > div:nth-child(2) > div:nth-child(2) > button {
+    width: 18%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+    border-radius: 0.7em;
+    border: #13ff00;
+    box-shadow: 2px 2px 3px 0;
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+    /*margin-left: 10%;*/
+    cursor: pointer;
+    user-select: none;
+
+}
+#customerSection  > div > div:nth-child(2) > div:nth-child(2) > button:nth-child(5){
+    background-color: red;
+}
+/*-----------------------------------------------------*/
+#customerSection  > div > div:nth-child(2) > div:nth-child(3) {
+    width: 90%;
+    height: 40%;
+    align-self: center;
+    /*background-color: chartreuse;*/
+    display: flex;
+    justify-content: center;
+
+}
+#customerSection  > div > div:nth-child(2) > div:nth-child(3) > table {
+    height: 0;
+    background-color: whitesmoke;
+
+}
+.cusInput{
+    outline-color:  greenyellow;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+/*----style for footer----------------------------------------------------------------------------*/
+footer {
+    width: 100%;
+    height: 4vh;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer > p {
+    margin: 0;
+}
+

@@ -1,0 +1,116 @@
+<!--
+/*
+* @author : supun@mj
+* Project : Web POS
+* Date    : 8/16/2023 (Wed)
+* Time    : 3:03 AM
+* For GDSE course of IJSE institute.
+*/
+-->
+/*
+
+header{
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    !*background-color: #BED7FD;*!
+}
+header > section{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+header > section:first-child > img {
+    width: 20%;
+    height: 70%;
+    margin-left: 3%;
+}
+header > section:first-child > h2 {
+    !*font-family: 'Roboto', sans-serif;*!
+    font-family: 'Rubik', sans-serif;
+    margin-left: 10%;
+    font-size: 30px;
+    font-weight: lighter;
+
+}
+header > section:nth-child(2) > div {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: lighter;
+}
+
+header > section:nth-child(2) > div:first-child {
+    justify-content: space-around;
+    font-size: 20px;
+
+}
+header > section:nth-child(2) > div:nth-child(2) {
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+header > section:nth-child(2) > div:nth-child(2) > img {
+    margin-left: 20%;
+    width: 15%;
+}
+*/
+
+/*----style for main----------------------*/
+/*body {*/
+/*    width: 95%;*/
+/*    background-color: #f5c2c7;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+main {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 88vh;
+}
+
+/*------aside nav---------------*/
+main > aside {
+    width: 6%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 88vh;
+}
+main > aside > nav {
+    width: 80%;
+    height: 80%;
+    margin-top: 70%;
+
+}
+main > aside > nav > a {
+    text-decoration: none;
+    color:black;
+}
+main > aside > nav > a > img {
+    width: 100%;
+    height: 50%;
+}
+main > aside > nav > a > h4 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    margin-top: 5%;
+    text-align: center;
+}
+main > aside > nav > a {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}

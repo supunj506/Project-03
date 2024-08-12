@@ -1,0 +1,389 @@
+<!--/*
+* @author : supun@mj
+* Project : Web POS
+* Date    : 8/19/20 23 (Sat)
+* Time    : 8:56 PM
+* For GDSE course of IJSE institute.
+*/-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Mart</title>
+    <link href="asset/lib/css_lib/normalize.css" rel="stylesheet">
+    <link href="asset/material/logo/superMartLogo.png" rel="icon">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+    <meta content="Super mart,super,mart " name="keywords">
+    <meta content="Sri lanka largest market place" name="description">
+    <meta content="S.M.Jayasinghe" name="author">
+    <meta content="S.M.Jayasinghe" name="owner">
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="asset/lib/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/header/header.css" rel="stylesheet">
+
+    <link href="asset/custom_css/common/nav_icon/nav_icon_style.css" rel="stylesheet">
+
+    <link href="asset/custom_css/item_form/itemForm.css " rel="stylesheet">
+
+<body>
+
+<header>
+    <section>
+        <img alt="logo.png" id="logo" src="asset/material/logo/superMartLogo.png">
+        <h2>Super Mart POS System</h2>
+
+    </section>
+
+    <section>
+        <div>
+            <h4 id="date">25-04-2023</h4>
+            <h4 id="time">12:23</h4>
+        </div>
+        <div>
+            <img alt="userImage.png" id="userImage" src="asset/material/image/UserImage.png">
+            <p>Supun Jayasinghe</p>
+        </div>
+    </section>
+</header>
+
+<main>
+    <aside>
+        <nav>
+            <a href="order.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-purchase-order-96.png">
+                <h4>Order</h4>
+            </a>
+
+            <a href="customer.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-customer-64.png">
+                <h4>Customer</h4>
+            </a>
+            <a href="item.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-product-90.png">
+                <h4>Items</h4>
+            </a>
+            <a href="orderDetails.html">
+                <img alt="order.png" class="nav_icon" src="asset/material/icon/icons8-more-details-100.png">
+                <h4>Order Details</h4>
+            </a>
+        </nav>
+
+    </aside>
+    <section class="form" id="itemSection">
+        <div>
+            <div>
+                <h2>Item</h2>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <p>Item Details</p>
+                    </div>
+                    <form id="itemForm">
+                        <div>
+                            <label for="inputCode"></label><input class="itemInput" id="inputCode"
+                                                                   name="code" placeholder=" Item code" type="text">
+                            <label for="inputDescription"></label><input class="itemInput" id="inputDescription"
+                                                                     name="description" placeholder=" Item Description" type="text">
+                        </div>
+                        <div>
+                            <label for="inputPrice"></label><input class="itemInput" id="inputPrice"
+                                                                        name="price" placeholder=" Unit Price"
+                                                                        type="text">
+                            <label for="inputQty"></label><input class="itemInput" id="inputQty"
+                                                                       name="qty" placeholder=" Quantity On Hand" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div>
+
+                    <button id="addItem" type="button">Add</button>
+                    <button id="remove" type="button">Remove</button>
+                    <button id="update" type="button">Update</button>
+                    <button id="getAll" type="button">Get ALL</button>
+                    <button id="clearAll" type="button">Clear</button>
+
+                </div>
+                <div>
+                    <table class="table table-hover table-bordered" id="table">
+                        <thead class="bg-info">
+                        <tr>
+                            <th scope="col">Code</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Quantity On Hand</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+</main>
+
+<footer>
+    <p>Copyright @ 2023 All Right Reserved By Supun Madubhashitha</p>
+</footer>
+
+<script src="asset/lib/JQuery/jquery-3.6.1.min.js"></script>
+
+
+<script>
+
+    const codeI = $('#inputCode');
+    const descriptionI = $("#inputDescription");
+    const priceI = $("#inputPrice");
+    const qtyI = $("#inputQty");
+
+    codeI.focus();
+
+    const itemCodeRegex = /^(P)[0-9]{3}$/;
+    const itemDescriptionRegex = /^[A-z -,/'"-]{3,100}$/;
+    const itemPriceRegex = /^[0-9]{1,10}$/;
+    const itemQtyRegex = /^[0-9]{1,10}$/;
+
+    let validateAll = false;
+
+  /*  function regex(status, input) {
+        if (status) {
+            input.css("outline-color", "greenyellow");
+            // input.css("box-shadow","0 0 10px greenyellow")
+            validateAll = true;
+
+        } else {
+            input.css("outline-color", "red");
+            // input.css("box-shadow","0 0 10px red")
+            validateAll = false;
+        }
+    }
+
+    codeI.on("keyup", function (event) {
+        if (itemCodeRegex.test(codeI.val())) {
+            regex(true, codeI);
+            if (event.code === "Enter") {
+                descriptionI.focus();
+
+            }
+
+        } else {
+            regex(false, codeI);
+            if (event.code === "Enter") {
+                alert("Check your input again !!!");
+            }
+        }
+
+    })
+    descriptionI.on("keyup", function (event) {
+        if (itemDescriptionRegex.test(descriptionI.val())) {
+            regex(true, descriptionI);
+            if (event.code === "Enter") {
+                priceI.focus();
+            }
+        } else {
+            regex(false, descriptionI);
+            if (event.code === "Enter") {
+                alert("Check your input again !!!");
+            }
+        }
+
+    })
+    priceI.on("keyup", function (event) {
+        if (itemQtyRegex.test(priceI.val())) {
+            regex(true, priceI);
+            if (event.code === "Enter") {
+                qtyI.focus();
+            }
+        } else {
+            regex(false, priceI);
+            if (event.code === "Enter") {
+                alert("Check your input again !!!");
+            }
+        }
+
+    })
+    qtyI.on("keyup", function (event) {
+        if (itemPriceRegex.test(qtyI.val())) {
+            regex(true, qtyI);
+            if (event.code === "Enter") {
+
+            }
+        } else {
+            regex(false, qtyI);
+            if (event.code === "Enter") {
+                alert("Check your input again !!!");
+            }
+        }
+
+    })*/
+
+    function emptyField() {
+        return codeI.val() === "" || descriptionI.val() === "" || priceI.val() === "" || qtyI.val() === "";
+    }
+
+    let priviesRow;
+    let baseURL = "http://localhost:8080/backend/";
+
+    function bindTableRowClick() {
+        $("#tbody > tr ").click(function () {
+
+            if (priviesRow !== null) {
+                $(priviesRow).css("background", "white");
+                $(this).css("background", "#BED7FD");
+                priviesRow = this;
+            } else {
+                if (this.style.background === "white") {
+                    $(this).css("background", "#BED7FD")
+                    priviesRow = this;
+
+                } else {
+                    $(this).css("background", "white");
+                }
+            }
+            codeI.val($(this).children(":eq(0)").text());
+            descriptionI.val($(this).children(":eq(1)").text());
+            priceI.val($(this).children(":eq(2)").text());
+            qtyI.val($(this).children(":eq(3)").text());
+        })
+    }
+
+    function loadAllItem() {
+        $("#table").find('tbody').empty();
+        $.ajax({
+            url: baseURL + "item",
+            dataType: "json",
+            success: function (resp) {
+                for (let cus of resp) {
+                    // console.log(cus.id,cus.name,cus.address,cus.email);
+                    $("#tbody").append(`<tr> <td>${cus.code}</td> <td>${cus.description}</td> <td>${cus.price}</td> <td>${cus.qty}</td></tr>`)
+                }
+                bindTableRowClick();
+            }
+        });
+    }
+
+    loadAllItem();
+
+    function clearInput() {
+        codeI.val("");
+        descriptionI.val("");
+        priceI.val("");
+        qtyI.val("");
+    }
+
+    $('#clearAll').on("click", function () {
+        clearInput();
+        $(priviesRow).css("background", "white");
+    });
+
+    $("#addItem").on("click", function () {
+        // if (!emptyField() && validateAll) {
+            $.ajax({
+                url: baseURL + "item",
+                method: "post",
+                data: getJsonObject(),
+                success: function () {
+                    loadAllItem();
+                    clearInput();
+                    // alert(resp.message)
+
+                },
+                // error: function (error) {
+                //     /*alert(JSON.parse(error.responseText))*/
+                //     var json = JSON.parse(error.responseText);
+                //     alert(json.message);
+                // }
+            })
+       /* } else {
+            alert("invalid input detected !!!");
+        }*/
+
+    })
+
+    $("#getAll").click(function () {
+        loadAllItem();
+    });
+
+    $("#remove").click(function () {
+
+        $.ajax({
+            url: baseURL + "item?code=" + $("#inputCode").val(),
+            method: "delete",
+            // dataType: "json",
+            success: function () {
+                loadAllItem();
+                // let res = JSON.parse(resp);
+                clearInput();;
+                // alert(resp.message);
+
+            }/*,
+            error: function (err) {
+
+                let er = JSON.parse(err.responseText);
+                alert(er.message);
+
+
+            }*/
+        })
+    });
+
+    $("#update").click(function () {
+        let code = $("#inputCode").val();
+        let description = $("#inputDescription").val();
+        let price = $("#inputPrice").val();
+        let qty = $("#inputQty").val();
+        let item = {
+            code: code,
+            description: description,
+            price: price,
+            qty: qty
+        }
+        let itemJson = JSON.stringify(item);
+        $.ajax({
+            url: baseURL + "item",
+            method: "put",
+            // contentType: "application/json",
+            data: itemJson,
+            // dataType: "json",
+            success: function (resp) {
+                // alert(resp.message);
+                // console.log(resp);
+                clearInput();
+                loadAllItem();
+            }/*,
+            error: function (error) {
+                let cases = JSON.parse(error.responseText).message;
+                alert(cases)
+            }*/
+        })
+    });
+
+
+    // $("#date").text(new Date().toJSON().split("T")[0]);
+    $("#date").text(new Date().toDateString() );
+    // console.log(new Date().toString().split(" ")[4] )
+    setInterval(()=>{
+        $("#time").text(new Date().toString().split(" ")[4]);
+    },1000);
+    // $("#time").text(new Date().toString().split(" ")[4]);
+
+    function getJsonObject(){
+        let object = {
+            code : codeI.val(),
+            description: descriptionI.val(),
+            price: priceI.val(),
+            qty:qtyI.val()
+        }
+        return JSON.stringify(object);
+    }
+</script>
+
+</body>
+</html>
