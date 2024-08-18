@@ -260,9 +260,9 @@
             url: baseURL + "item",
             dataType: "json",
             success: function (resp) {
-                for (let cus of resp) {
+                for (let item of resp) {
                     // console.log(cus.id,cus.name,cus.address,cus.email);
-                    $("#tbody").append(`<tr> <td>${cus.code}</td> <td>${cus.description}</td> <td>${cus.price}</td> <td>${cus.qty}</td></tr>`)
+                    $("#tbody").append(`<tr> <td>${item.code}</td> <td>${item.description}</td> <td>${item.price}</td> <td>${item.qty}</td></tr>`)
                 }
                 bindTableRowClick();
             }

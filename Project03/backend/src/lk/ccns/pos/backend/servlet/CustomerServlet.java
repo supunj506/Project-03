@@ -30,15 +30,9 @@ public class CustomerServlet extends HttpServlet {
     FactoryConfiguration factoryConfiguration;
     Convertor convertor;
 
-    @Override
-    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
-        resp.addHeader("Access-Control-Allow-Methods","DELETE,PUT");
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin", "*");
         factoryConfiguration = new FactoryConfiguration();
         convertor = new Convertor();
         Session session = factoryConfiguration.getSession();
@@ -50,7 +44,6 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin", "*");
         factoryConfiguration = new FactoryConfiguration();
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
@@ -73,7 +66,6 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
         factoryConfiguration = new FactoryConfiguration();
         convertor = new Convertor();
         Session session = factoryConfiguration.getSession();
@@ -90,7 +82,6 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
         factoryConfiguration = new FactoryConfiguration();
         convertor = new Convertor();
 

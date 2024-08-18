@@ -32,7 +32,6 @@ public class OrdersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
 
         FactoryConfiguration fa = new FactoryConfiguration();
         Session session = fa.getSession();
@@ -54,7 +53,6 @@ public class OrdersServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
         FactoryConfiguration fa = new FactoryConfiguration();
         Convertor con = new Convertor();
         JsonReader reader = Json.createReader(req.getReader());

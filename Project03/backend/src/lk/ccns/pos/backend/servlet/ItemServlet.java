@@ -29,16 +29,9 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/item")
 public class ItemServlet extends HttpServlet {
-    @Override
-    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
-        resp.addHeader("Access-Control-Allow-Methods","DELETE,PUT");
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
-
         FactoryConfiguration factoryConfiguration = new FactoryConfiguration();
         Convertor convertor = new Convertor();
 
@@ -52,7 +45,7 @@ public class ItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
+//        resp.addHeader("Access-Control-Allow-Origin","*");
         FactoryConfiguration factoryConfiguration =new FactoryConfiguration();
 
         Session session = factoryConfiguration.getSession();
@@ -71,12 +64,10 @@ public class ItemServlet extends HttpServlet {
         session.close();
         resp.setContentType("application/json");
         resp.getWriter().print(jArray.build());
-
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
         FactoryConfiguration fa = new FactoryConfiguration();
         Convertor con = new Convertor();
 
@@ -91,7 +82,6 @@ public class ItemServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.addHeader("Access-Control-Allow-Origin","*");
         FactoryConfiguration fa = new FactoryConfiguration();
         Convertor con = new Convertor();
 
